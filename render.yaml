@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: strip-audio
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: apt-get update && apt-get install -y ffmpeg && npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
