@@ -685,7 +685,7 @@ function Footer() {
         <div className="flex items-center gap-5">
           <a href="/privacy" className="text-[#9B9B9B] hover:text-[#1A1A1A] text-xs transition-colors">Privacy</a>
           <a href="/terms" className="text-[#9B9B9B] hover:text-[#1A1A1A] text-xs transition-colors">Terms</a>
-          <a href="#" className="text-[#9B9B9B] hover:text-[#1A1A1A] text-xs transition-colors">Contact</a>
+          <a href="https://robbiesrobotics.ai" className="text-[#9B9B9B] hover:text-[#1A1A1A] text-xs transition-colors">Contact</a>
         </div>
         <p className="text-[#C8C5BF] text-xs">© 2026 MediaFix</p>
       </div>

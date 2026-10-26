@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export const CONTACT_EMAIL = "[contact email TBD]";
+export const CONTACT_EMAIL = "the Get in Touch form at robbiesrobotics.ai";
 
 export default function LegalPage({
   title,
