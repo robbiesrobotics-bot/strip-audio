@@ -129,12 +129,6 @@ const IconMoon = () => (
   </svg>
 );
 
-const IconStar = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-  </svg>
-);
-
 // ─── LIVE AUDIO DEMO ────────────────────────────────────────────────────────
 
 const DIRTY_URL = "https://hpyzbhlkznkhudiwbnny.supabase.co/storage/v1/object/public/audio-demos/voice-before-new.wav";
@@ -431,27 +425,6 @@ function Hero() {
               <p className="text-[#9B9B9B] text-sm mt-3 ml-1">Free to try · No login required · Results in seconds</p>
             </div>
 
-            {/* Stats row */}
-            <div className="pt-6 border-t border-[#E5E3DF]">
-              <div className="inline-flex items-center gap-5 bg-white/40 backdrop-blur rounded-full px-6 py-3 border border-[#E5E3DF]/80 shadow-sm">
-                <div>
-                  <div className="text-2xl font-extrabold text-[#1A1A1A]">47K+</div>
-                  <div className="text-xs text-[#9B9B9B] font-medium">creators</div>
-                </div>
-                <div className="w-px h-8 bg-[#E5E3DF]" />
-                <div>
-                  <div className="text-2xl font-extrabold text-[#1A1A1A]">1.2M</div>
-                  <div className="text-xs text-[#9B9B9B] font-medium">files processed</div>
-                </div>
-                <div className="w-px h-8 bg-[#E5E3DF]" />
-                <div>
-                  <div className="text-2xl font-extrabold text-[#1A1A1A]">4.9</div>
-                  <div className="text-xs text-[#9B9B9B] font-medium flex items-center gap-0.5">
-                    <span className="text-[#F5A623]"><IconStar /></span> rating
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Right: product mockup */}
@@ -462,7 +435,7 @@ function Hero() {
   );
 }
 
-// ─── AUDIO DEMO (below hero CTA, before social proof) ──────────────────────
+// ─── AUDIO DEMO (below hero CTA) ──────────────────────
 
 function AudioDemoSection() {
   return (
@@ -472,36 +445,6 @@ function AudioDemoSection() {
           <h3 className="text-xl font-bold text-[#1A1A1A]">Hear the difference</h3>
         </div>
         <LiveAudioDemo />
-      </div>
-    </section>
-  );
-}
-
-// ─── SOCIAL PROOF LOGOS ─────────────────────────────────────────────────────
-
-function LogoBar() {
-  const platforms = [
-    { name: "Spotify", color: "#1DB954" },
-    { name: "Apple Music", color: "#FA2D48" },
-    { name: "YouTube", color: "#FF0000" },
-    { name: "TikTok", color: "#010101" },
-    { name: "SoundCloud", color: "#FF5500" },
-    { name: "Bandcamp", color: "#1DA0C3" },
-  ];
-  return (
-    <section className="bg-white border-y border-[#E5E3DF] py-8 px-6">
-      <div className="max-w-6xl mx-auto">
-        <p className="text-center text-xs font-semibold text-[#9B9B9B] uppercase tracking-widest mb-6">
-          Trusted by creators on the world&apos;s biggest platforms
-        </p>
-        <div className="flex items-center justify-center gap-4 md:gap-8 flex-wrap">
-          {platforms.map((p) => (
-            <div key={p.name} className="flex items-center gap-2 px-4 py-2 rounded-xl border border-[#E5E3DF] bg-[#F8F7F6] hover:border-[#D8D5CF] hover:bg-[#F0EFED] transition-all duration-200 cursor-default">
-              <div className="w-2 h-2 rounded-full shrink-0" style={{ background: p.color }} />
-              <span className="text-[#6B6B6B] font-bold text-sm tracking-tight">{p.name}</span>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -572,9 +515,9 @@ function HowItWorks() {
 
 function FeaturesSection() {
   const features = [
-    { icon: <IconShield />, title: "Streaming compliant", desc: "-14 LUFS guaranteed. Spotify, Apple, and YouTube ready, every time." },
+    { icon: <IconShield />, title: "Upload-ready loudness", desc: "Targets common streaming loudness levels to help prepare files for platform upload." },
     { icon: <IconNoise />, title: "Cuts the noise", desc: "FFT-based noise reduction. Hiss, hum, and room rumble — gone." },
-    { icon: <IconLimiter />, title: "No clipping", desc: "Brick-wall limiter. Your peaks never exceed -0.3 dBFS." },
+    { icon: <IconLimiter />, title: "Tames clipping", desc: "A brick-wall limiter keeps peaks under control." },
     { icon: <IconClock />, title: "13 seconds", desc: "Upload to download. Not a minute. Not 10 minutes." },
     { icon: <IconZap />, title: "No DAW required", desc: "Zero learning curve. If you can click a button, you can fix a file." },
     { icon: <IconSliders />, title: "Smart fixes only", desc: "Conditional processing. We only touch what your audio actually needs." },
@@ -670,51 +613,14 @@ function BeforeAfter() {
 
 // Pricing section moved to components/PricingSection.tsx
 function Pricing() { return <PricingSection />; }
-function Testimonials() {
-  const reviews = [
-    { name: "Jordan M.", handle: "Podcaster, 12K subscribers", text: "My episodes went from sounding like Zoom recordings to broadcast-ready in seconds. This is the tool I didn't know I needed.", avatar: "JM", stars: 5 },
-    { name: "Tyler S.", handle: "Indie musician", text: "I fix my singles at home now. The normalization alone saves me hours of back-and-forth with my engineer.", avatar: "TS", stars: 5 },
-    { name: "Aisha K.", handle: "YouTube creator, 85K subscribers", text: "My watch time jumped 22% after I started using MediaFix. The difference in audio quality is immediate and obvious.", avatar: "AK", stars: 5 },
-  ];
-  return (
-    <section className="py-24 px-6 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <div className="max-w-2xl mb-14 text-center mx-auto">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#F5A623] mb-3 block">Testimonials</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#1A1A1A] tracking-tight leading-tight">What creators and professionals are saying</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto ">
-          {reviews.map((r, i) => (
-            <div key={i} className="bg-white rounded-2xl border border-[#E5E3DF] p-6 shadow-sm hover:shadow-md hover:border-[#D8D5CF] transition-all duration-200">
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(r.stars)].map((_, s) => (
-                  <span key={s} className="text-[#F5A623]"><IconStar /></span>
-                ))}
-              </div>
-              <p className="text-[#3A3A3A] text-sm leading-relaxed mb-5 italic min-h-[84px]">&ldquo;{r.text}&rdquo;</p>
-              <div className="flex items-center gap-3 pt-2 border-t border-[#F0EFED]">
-                <div className="w-9 h-9 rounded-full bg-[#F5A623] text-white font-bold text-xs flex items-center justify-center shrink-0">{r.avatar}</div>
-                <div>
-                  <div className="text-[#1A1A1A] font-semibold text-sm">{r.name}</div>
-                  <div className="text-[#9B9B9B] text-xs">{r.handle}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // ─── FAQ ─────────────────────────────────────────────────────────────────────
 
 function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
   const items = [
     { q: "What file types do you support?", a: "WAV, FLAC, AIFF, and MP3. Up to 500MB per file." },
-    { q: "Is this really streaming compliant?", a: "Yes. Every repaired file meets -14 LUFS integrated loudness with true peak at or below -1.0 dBFS — exactly what Spotify, Apple Music, and YouTube require." },
-    { q: "What happens to my files?", a: "Files are processed in memory and never stored on disk. They are deleted immediately after your download completes. We don't keep copies." },
+    { q: "Will my file be accepted by streaming platforms?", a: "MediaFix targets common streaming loudness levels (around -14 LUFS integrated, with limited true peak) to help prepare files for platform upload. Each platform sets its own requirements and review process, so we can't guarantee acceptance." },
+    { q: "What happens to my files?", a: "Your file is processed to produce the fixed file. It is held in temporary storage only while processing runs and is deleted when processing finishes. See our Privacy page for details." },
     { q: "How is this different from Audacity or Adobe Enhance?", a: "Audacity requires manual setup and expertise. Adobe Enhance is for speech only. MediaFix handles full-spectrum audio with conditional, automatic processing — no configuration needed." },
     { q: "Can I use repaired files commercially?", a: "Yes, on the Pro and Studio plans. You retain full copyright of your repaired audio." },
     { q: "How does the 13-second claim work?", a: "On a typical 3-minute track, our pipeline checks 7 metrics simultaneously, then runs a conditional 12-filter ffmpeg chain. Total pipeline completes in under 13 seconds for files under 50MB." },
@@ -777,9 +683,9 @@ function Footer() {
           <span className="text-[#1A1A1A] font-bold text-base">MediaFix</span>
         </div>
         <div className="flex items-center gap-5">
-          <a href="#" className="text-[#9B9B9B] hover:text-[#1A1A1A] text-xs transition-colors">Privacy</a>
-          <a href="#" className="text-[#9B9B9B] hover:text-[#1A1A1A] text-xs transition-colors">Terms</a>
-          <a href="#" className="text-[#9B9B9B] hover:text-[#1A1A1A] text-xs transition-colors">Contact</a>
+          <a href="/privacy" className="text-[#9B9B9B] hover:text-[#1A1A1A] text-xs transition-colors">Privacy</a>
+          <a href="/terms" className="text-[#9B9B9B] hover:text-[#1A1A1A] text-xs transition-colors">Terms</a>
+          <a href="https://robbiesrobotics.ai" className="text-[#9B9B9B] hover:text-[#1A1A1A] text-xs transition-colors">Contact</a>
         </div>
         <p className="text-[#C8C5BF] text-xs">© 2026 MediaFix</p>
       </div>
@@ -1078,12 +984,10 @@ export default function Page() {
       <NavBar />
       <Hero />
       <AudioDemoSection />
-      <LogoBar />
       <ProblemSection />
       <HowItWorks />
       <FeaturesSection />
       <BeforeAfter />
-      <Testimonials />
       <PricingSection />
       <FAQ />
       <CTABanner />
